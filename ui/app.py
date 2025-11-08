@@ -3,12 +3,20 @@ import pandas as pd
 import joblib
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
+import joblib
 
 # ------------------------------
 # Load Model and Feature Columns
 # ------------------------------
-model = joblib.load('../models/final_model.pkl')
-feature_columns = joblib.load('../models/feature_columns.pkl')
+
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "..", "models", "final_model.pkl")
+FEATURES_PATH = os.path.join(BASE_DIR, "..", "models", "feature_columns.pkl")
+
+model = joblib.load(MODEL_PATH)
+feature_columns = joblib.load(FEATURES_PATH)
 
 # ------------------------------
 # App Config & Title
